@@ -1,0 +1,25 @@
+# Import the necessary libraries
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
+
+# Create a new instance of the Chrome driver
+driver = webdriver.Chrome()
+
+# Navigate to the Google homepage
+driver.get("https://www.google.com")
+
+# Find the search box element using XPath
+search_box = driver.find_element(By.XPATH, "//input[@name='q']")
+
+# Enter the search term
+search_box.send_keys("Selenium")
+
+# Submit the search form
+search_box.send_keys(u'\ue007') # This is the Unicode for the Enter key
+
+# Wait for 5 seconds
+time.sleep(5)
+
+# Close the browser window
+driver.quit()
